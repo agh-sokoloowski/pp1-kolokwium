@@ -1,0 +1,12 @@
+name: tests
+on: [push]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: |
+        cmake -S . -B build
+        cmake --build build
+        ./build/bin/Kolokwium
